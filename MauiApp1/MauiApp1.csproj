@@ -49,7 +49,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Test\**" />
+	  <Compile Remove="Test\**" />
+	  <EmbeddedResource Remove="Test\**" />
+	  <MauiCss Remove="Test\**" />
+	  <MauiXaml Remove="Test\**" />
+	  <None Remove="Test\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\ec051a43c16a1babd80f44de5a900b29.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="DetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
