@@ -3,13 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.MainPage"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
-             x:DataType="viewmodel:MainViewModel">
+             x:DataType="viewmodel:MainViewModel"
+             xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".75*, .25*"
           Padding="10"
           RowSpacing="10"
           ColumnSpacing="10">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#3a0ca3"
+                          Offset="0.1" />
+                <GradientStop Color="#7209b7"
+                          Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
         <Image Grid.ColumnSpan="2"
                Source="el_barto.png"
                BackgroundColor="Transparent"/>
@@ -23,7 +32,9 @@
                 Grid.Row="1"
                 Grid.Column="1"/>
 
-        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+        <Frame Grid.Row="2" Grid.ColumnSpan="2"
+               BackgroundColor="Transparent">
+        <CollectionView 
                         ItemsSource="{Binding Items}"
                         SelectionMode="None">
             <!--<CollectionView.ItemsSource>
@@ -45,7 +56,16 @@
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <Grid Padding="0,5">
-                            <Frame>
+                            <Frame BackgroundColor="Transparent">
+                                <FlyoutBase.ContextFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem Text="Eliminar"
+                                                        Clicked="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=DeleteCommand}"
+                                                        CommandParameter="{Binding .}"/>
+                                        <!--<MenuFlyoutItem Text="Test2"/>-->
+                                        <!--<MenuFlyoutItem Text="Test3"/>-->
+                                    </MenuFlyout>
+                                </FlyoutBase.ContextFlyout>
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
@@ -59,6 +79,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        </Frame>
     </Grid>
 
 </ContentPage>
