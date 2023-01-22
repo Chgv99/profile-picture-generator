@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MetroLog.MicrosoftExtensions;
+using Microsoft.Extensions.Logging;
 
 namespace MauiApp1;
 
@@ -18,6 +19,10 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
+		builder.Logging.AddTraceLogger(_ => { });
+        //builder.Services.AddTransient<App>();
+        builder.Services.AddTransient<MainPage>();
 
 		return builder.Build();
 	}
