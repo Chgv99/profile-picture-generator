@@ -2,7 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.MainPage">
-
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#3a0ca3"
+                          Offset="0.1" />
+            <GradientStop Color="#7209b7"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <!--<ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -47,18 +54,16 @@
         </Grid.ColumnDefinitions>
         <Frame BackgroundColor="Transparent" 
                BorderColor="Gray"
-               CornerRadius="10">
+               CornerRadius="10"
+               Margin="10">
+            <Label Text="Lists" />
+        </Frame>
+        <Frame BackgroundColor="Transparent" 
+               BorderColor="Gray"
+               CornerRadius="10"
+               Margin="10">
             <Label Text="Frame wrapped around a Label" />
         </Frame>
-        <Label Text="Row 0, Column 0"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        <BoxView Grid.Column="1"
-                 Color="Blue" />
-        <Label Grid.Column="1"
-               Text="Row 0, Column 1"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
     </Grid>
 
 </ContentPage>
