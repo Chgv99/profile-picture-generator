@@ -10,11 +10,11 @@ namespace MauiApp1.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
-        [ObservableProperty] ObservableCollection<string> lists;
+        [ObservableProperty] ObservableCollection<ObservableCollection<string>> lists;
 
         public MainViewModel()
         {
-            Lists = new ObservableCollection<string>();
+            Lists = new ObservableCollection<ObservableCollection<string>>();
         }
     }
 }

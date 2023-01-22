@@ -56,14 +56,46 @@
                BorderColor="Gray"
                CornerRadius="10"
                Margin="10">
-            <Label Text="Lists" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <!--<ColumnDefinition Width="*"/>-->
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Lists" />
+                    <Button Text="+" MaximumHeightRequest="10"/>
+                </StackLayout>
+                <CollectionView 
+                            Grid.Row="1"
+                            
+                            SelectionMode="None">
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Apples</x:String>
+                            <x:String>Bananas</x:String>
+                            <x:String>Oranges</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <!--:DataType="{x:Type x:ObservableCollection<string>}">-->
+                            <Label Text="{Binding .}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
         </Frame>
         <Frame BackgroundColor="Transparent" 
                BorderColor="Gray"
                CornerRadius="10"
                Margin="10">
-            <Label Text="Frame wrapped around a Label" />
+            <Label Text="Lists" />
         </Frame>
+        
     </Grid>
 
 </ContentPage>
